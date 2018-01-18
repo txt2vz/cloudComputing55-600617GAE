@@ -44,8 +44,10 @@ buildscript {      // Configuration for building
   appengine {
   
 	deploy {   // deploy configuration
-	  stopPreviousVersion = true  // default - stop the current version
-	  promote = true              // default - & make this the current version
+	  stopPreviousVersion = false  // default - stop the current version
+	  promote = false
+	  	version = '30'
+		project = 'txt2vz'              // default - & make this the current version
 	}
   
   }

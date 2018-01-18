@@ -28,7 +28,7 @@ class StoreBookDetails extends GroovyServlet{
 		String strKind = "Book"
 		
 		String usersISBN = request.getParameter("isbn");
-		String googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'+usersISBN 
+		String googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'+usersISBN+'&country=UK' 
 		def url = googleBooksURL.toURL()
 		def json = url.getText()
 		// println "json: " + json  //for debugging
@@ -58,7 +58,7 @@ class StoreBookDetails extends GroovyServlet{
 		// The value of strKind was set to "Book" near the start of this code.
 		Query q = new Query(strKind);
 		PreparedQuery pq = datastore.prepare(q);
-		
+	//	
 		// Iterate over all entities returned from the Datastore and
 		// put properties in the response (output) string to be displayed on the web page.
 		for (Entity result : pq.asIterable()) {
