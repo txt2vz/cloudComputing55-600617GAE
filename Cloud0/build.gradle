@@ -27,8 +27,12 @@ buildscript {      // Configuration for building
   
   dependencies {
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-	providedCompile 'com.google.appengine:appengine:+'
-	compile 'org.codehaus.groovy:groovy-all:2.4.12'  
+//	providedCompile 'com.google.appengine:appengine:+'
+	//compile 'com.google.cloud:google-cloud-datastore:+'  //1.15.0'
+	compile 'org.codehaus.groovy:groovy-all:2.4.13'  
+	compile group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.60'
+	compile 'com.google.appengine:appengine:+'
+	
   }
   
   gretty {

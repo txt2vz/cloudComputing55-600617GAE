@@ -9,7 +9,7 @@
 			function lookupISBN(isbn) {
 				$.ajax({
 				type : "POST",
-				url : "isbnservice",
+				url : "storebookservice",
 				cache : false,
 				data : "isbn=" + isbn,
 				success : function(data, textStatus, jqXHR) {
@@ -30,7 +30,7 @@
 		<h2>ISBN Lookup</h2>
 		<hr />
 		<h4>
-			(Powered by 
+			(Powered by  
 			<a href="https://books.google.co.uk/">Google Books</a>)
 		</h4>
 		<hr />

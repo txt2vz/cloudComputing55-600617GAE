@@ -12,11 +12,18 @@
 	<servlet-mapping>
 		<servlet-name>Groovy</servlet-name>
 		<url-pattern>*.groovy</url-pattern>
-	</servlet-mapping>
-
-	
+	</servlet-mapping>	
 
 	<servlet>
+		<servlet-name>StoreBookDetailsServlet</servlet-name>
+		<servlet-class>isbn.StoreBookDetails</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StoreBookDetailsServlet</servlet-name>
+		<url-pattern>/storebookservice</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
 		<servlet-name>BookDetailsServlet</servlet-name>
 		<servlet-class>isbn.BookDetails</servlet-class>
 	</servlet>
