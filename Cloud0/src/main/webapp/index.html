@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script type="text/JavaScript"
+			src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+		</script>
+
+		<script type="text/javascript">	
+			function lookupISBN(isbn) {
+				$.ajax({
+				type : "POST",
+				url : "isbnservice",
+				cache : false,
+				data : "isbn=" + isbn,
+				success : function(data, textStatus, jqXHR) {
+					// alert ("successs " + data);
+					document.getElementById('ISBNServletResponse').innerHTML=data;
+					},
+				error : function(jqXHR, textStatus, errorThrown) {
+					alert("error " + textStatus);
+					}
+				});
+			}
+		</script>
+
+		<title>SHU GAE ISBN Service</title>
+	</head>
+
+	<body>
+		<h2>ISBN Lookup</h2>
+		<hr />
+		<h4>
+			(Powered by Google Books 
+			<a href="https://books.google.co.uk/">ISBN Service</a>)
+		</h4>
+		<hr />
+		<p>
+			Lookup ISBN:<input type="text" id="isbn"></input>
+		</p>
+
+		<button onclick="lookupISBN(isbn.value)">Show Book Details</button>
+		<p>
+			<span id="ISBNServletResponse"></span>
+		</p>
+
+	</body>
+</html>
