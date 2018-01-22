@@ -1,59 +1,49 @@
-buildscript {      // Configuration for building
+buildscript {
+	// Configuration for building
 	repositories {
-	  jcenter()      // Bintray's repository - a fast Maven Central mirror & more
-	  mavenCentral()
+		jcenter()      // Bintray's repository - a fast Maven Central mirror & more
+		mavenCentral()
 	}
-	dependencies {
-	  classpath 'com.google.cloud.tools:appengine-gradle-plugin:+'
-	  classpath 'org.akhikhl.gretty:gretty:+'
+	dependencies { classpath 'com.google.cloud.tools:appengine-gradle-plugin:+' 
 	}
-  }
-  
-  repositories {   // repositories for JARs you access in your code
-	maven {
-	  url 'https://maven-central.storage.googleapis.com'             // Google's mirror of Maven Central
-	}  
- 
-  
+}
+
+repositories {
+	// repositories for JARs you access in your code
+	maven { url 'https://maven-central.storage.googleapis.com'             // Google's mirror of Maven Central
+	}
+
 	jcenter()
 	mavenCentral()
-  }
-  
-  apply plugin: 'java'
-  apply plugin: 'groovy'
-  apply plugin: 'war'
-  apply plugin: 'org.akhikhl.gretty'
-  apply plugin: 'com.google.cloud.tools.appengine'
-  
-  dependencies {
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'war'
+apply plugin: 'com.google.cloud.tools.appengine'
+
+dependencies {
 	providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
-//	providedCompile 'com.google.appengine:appengine:+'
-	//compile 'com.google.cloud:google-cloud-datastore:+'  //1.15.0'
-	compile 'org.codehaus.groovy:groovy-all:2.4.13'  
-	compile group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.60'
-	compile 'com.google.appengine:appengine:+'
+	providedCompile 'com.google.appengine:appengine:+'
 	
-  }
-  
-  gretty {
-	  httpPort = 8080
-	  contextPath = '/'
-	  servletContainer = 'jetty9'  // What App Engine Flexible uses
-  }
-  
-  appengine {
-  
-	deploy {   // deploy configuration
-	  stopPreviousVersion = false  // default - stop the current version
-	  promote = false
-	  	version = '30'
+	compile  group: 'com.google.appengine', name: 'appengine-api-1.0-sdk', version: '1.9.60'	
+	compile 'org.codehaus.groovy:groovy-all:2.4.13'
+}
+
+appengine {
+
+	deploy {
+		// deploy configuration
+		stopPreviousVersion = false  // default - stop the current version
+		promote = false
+		version = '31'
 		project = 'txt2vz'              // default - & make this the current version
 	}
-  
-  }
-  
-  group = 'com.example.appengine'   // Generated output GroupId
-  version = '1.0-SNAPSHOT'          // Version in generated output
-  
-  sourceCompatibility = 1.8
-  targetCompatibility = 1.8
+
+}
+
+group = 'com.example.appengine'   // Generated output GroupId
+version = '1.0-SNAPSHOT'          // Version in generated output
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8

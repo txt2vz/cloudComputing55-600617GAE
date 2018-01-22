@@ -27,7 +27,7 @@ class StoreBookDetails extends GroovyServlet{
 		// A Kind is the equivalent of a Table in a relational database.
 		String strKind = "Book"
 		
-		String usersISBN = request.getParameter("isbn");
+		String usersISBN = request.getParameter("isbn").trim();
 		String googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'+usersISBN+'&country=UK' 
 		def url = googleBooksURL.toURL()
 		def json = url.getText()

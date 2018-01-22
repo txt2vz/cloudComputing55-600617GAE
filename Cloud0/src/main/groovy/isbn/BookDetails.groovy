@@ -15,16 +15,16 @@ class BookDetails extends GroovyServlet{
 
 	void service(HttpServletRequest request, HttpServletResponse response) {
 		
-		String usersISBN = request.getParameter("isbn");
-		println "in BookDetails 3 - groovy println stmt" 
+		String usersISBN = request.getParameter("isbn").trim();
+	
 		println "usersISBN " + usersISBN 
 		String googleBooksURL = 'https://www.googleapis.com/books/v1/volumes?q=isbn:'+usersISBN+'&country=UK' 
 		def url = googleBooksURL.toURL()
 	
 		def json = url.getText()
-		println "googleBooksURL " + googleBooksURL
-		println "json is  " + json
-		//println "json: " + json
+		println "googleBooksURL: " + googleBooksURL
+		println "json returned: " + json
+		
 		def jsonSlurper = new JsonSlurper()
 		def object = jsonSlurper.parseText(json)
 		def title = object.items[0].volumeInfo.title	

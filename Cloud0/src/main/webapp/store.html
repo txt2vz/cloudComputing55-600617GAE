@@ -13,7 +13,6 @@
 				cache : false,
 				data : "isbn=" + isbn,
 				success : function(data, textStatus, jqXHR) {
-					// alert ("successs " + data);
 					document.getElementById('ISBNServletResponse').innerHTML=data;
 					},
 				error : function(jqXHR, textStatus, errorThrown) {
@@ -27,7 +26,7 @@
 	</head>
 
 	<body>
-		<h2>ISBN Lookup</h2>
+		<h2>ISBN Lookup and Store</h2>
 		<hr />
 		<h4>
 			(Powered by  
