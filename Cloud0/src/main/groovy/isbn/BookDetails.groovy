@@ -15,6 +15,7 @@ class BookDetails extends GroovyServlet{
 
 	void service(HttpServletRequest request, HttpServletResponse response) {
 		
+		//retrieve user entered isbn number and trim (remove white space)
 		String usersISBN = request.getParameter("isbn").trim();
 	
 		println "usersISBN " + usersISBN 
